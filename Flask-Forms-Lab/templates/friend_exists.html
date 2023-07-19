@@ -9,6 +9,11 @@
     color: white;
   }
 </style>
+  {%if n in friends%}
+    <h1> True, {{n}} is in your friends list!</h1>
+  {% else %}
+    <h1> False, {{n}} is not on your friends list. </h1>
+  {% endif %}
 <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
 </head>
