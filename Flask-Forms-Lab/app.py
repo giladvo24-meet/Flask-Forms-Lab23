@@ -7,8 +7,8 @@ app = Flask(  # Create a flask app
 	static_folder='static'  # Name of directory for static files
 )
 
-
-username = "siwarha"
+dct = {"giladvo": "123", "jawadab": "2405", "gutwi": "4292"}
+username = "giladvo"
 password = "123"
 facebook_friends=["Yahli","Jawad","Sam", "Nadeen", "Guy", "Rani"]
 
@@ -18,9 +18,9 @@ def login():
 	if request.method == 'GET':
 		return render_template('login.html')
 	else:
-		username1 = request.form['username']
+		username1 = request.form['username'].lower()
 		password1 = request.form['password']
-		if username == username1 and password == password1:
+		if username1 in dct and password1 == dct[username1]:
 			return redirect(url_for('home'))
 		else:
 			return render_template('login.html')
